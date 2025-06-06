@@ -1,17 +1,65 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content>
+
+
+  <ion-title class="titulopadrao1">
+    Ofertas do Dia
+  </ion-title>
+
+<div class="oferta">
+  <div id="produto_1" (click)="adicionarAoCarrinho('Coca-Cola', 1.99, 'assets/images/coca_oferta.png')">
+    <img src="assets/images/coca_oferta.png" alt="Coca em Oferta" />
+    <p class="texto_1">Coca-Cola 350ml <br> R$1,99</p>
+  </div>
+  <div id="produto_1" (click)="adicionarAoCarrinho('Frango Pacote', 25.00, 'assets/images/frango_pacote.png')">
+    <img src="assets/images/frango_pacote.png" alt="Frango em Oferta" />
+    <p class="texto_1">Frango Pacote 1kg <br>R$25,00</p>
+  </div>
+  <div id="produto_1" (click)="adicionarAoCarrinho('Pão Francês', 0.50, 'assets/images/pao.png')">
+    <img src="assets/images/pao.png" alt="Pão em Oferta" />
+    <p class="texto_1">Pão Francês <br>R$0,50</p>
+  </div>
+</div>
+
+<ion-title class="titulopadrao">
+  Catalogo
+</ion-title>
+
+<div class="catalogo">
+  <div id="categorias"(click)="goToPaes()">
+    <img src="assets/icon/pao.png" alt="Categoria Pães" />
+    <p class="texto_2">Pães</p>
+  </div>
+  <div id="categorias"(click)="goToBebidas()">
+    <img src="assets/icon/bebidas.png" alt="Categoria Bebidas" />
+    <p class="texto_2">Bebidas</p>
+  </div>
+  <div id="categorias" (click)="goToPratosQuentes()">
+    <img src="assets/icon/frango.png" alt="Categoria Pratos Quentes" />
+    <p class="texto_2">Pratos Quentes</p>
+  </div>
+  <div id="categorias" (click)="goToPratosFrios()">
+    <img src="assets/icon/congelada.png" alt="Categoria Pratos Frios" />
+    <p class="texto_2">Pratos Frios</p>
+  </div>
+  <div id="categorias" (click)="goToAcompanha()">
+    <img src="assets/icon/snack.png" alt="Categoria Acompanhamentos" />
+    <p class="texto_2">Acompanhamentos</p>
+  </div>
+  <div id="categorias" (click)="goToSobremesas()">
+    <img src="assets/icon/bolo.png" alt="Categoria Sobremesas" />
+    <p class="texto_2">Sobremesas</p>
+  </div>
+  <div id="categorias" (click)="goToCombos()">
+    <img src="assets/icon/combo.png" alt="Categoria Combos" />
+    <p class="texto_2">Combos</p>
+  </div>
+  <div id="categorias" (click)="goToOfertas()">
+    <img src="assets/icon/oferta.png" alt="Categoria Ofertas" />
+    <p class="texto_2">Ofertas</p>
+  </div>
+  
+</div>
+
 </ion-content>

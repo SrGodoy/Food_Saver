@@ -1,0 +1,60 @@
+<ion-header>
+
+</ion-header>
+
+
+<ion-content id="main-content">
+  <ion-title class="mercado_titulo">
+   <h3>Pratos Quentes</h3>
+  </ion-title>
+  <div class="produtos">
+    
+    <div id="item">
+      <img src="assets/images/frangofrito.png" alt="frango frito" />
+      <p class="texto_1">Frango Frito<br>500g<br>R$<span id="preco">15,99</span></p>
+      <button class="btn_adicionar" (click)="adicionarAoCarrinho('Frango Frito', 15.99, 'assets/images/frangofrito.png')">Adicionar</button>
+    </div>
+  
+   
+    <div id="item">
+      <img src="assets/images/hotdog.png" alt="hotdog" />
+      <p class="texto_1">Hot Dog Simples<br>1 Unidade<br>R$<span id="preco">4,99</span></p>
+      <button class="btn_adicionar" (click)="adicionarAoCarrinho('Hot Dog Simples', 4.99, 'assets/images/hotdog.png')">Adicionar</button>
+    </div>
+  
+
+  
+  <div id="item">
+    <img src="assets/images/coxinha.png" alt="coxinha de frango" />
+    <p class="texto_1">Coxinha de Frango<br>1 Unidade<br>R$<span id="preco">3,99</span></p>
+    <button class="btn_adicionar" (click)="adicionarAoCarrinho('Coxinha de Frango', 3.99, 'assets/images/coxinha.png')">Adicionar</button>
+  </div>
+  
+  <div id="item">
+    <img src="assets/images/kibe.png" alt="kibe com requeijão" />
+    <p class="texto_1">Kibe com Requeijão<br>1 Unidade<br>R$<span id="preco">2,99</span></p>
+    <button class="btn_adicionar" (click)="adicionarAoCarrinho('Kibe com Requeijão', 2.99, 'assets/images/kibe.png')">Adicionar</button>
+  </div>
+
+  <div id="item">
+    <img src="assets/images/xburger.png" alt="xburger" />
+    <p class="texto_1">X-Burger Simples<br>1 Unidade<br>R$<span id="preco">5,99</span></p>
+    <button class="btn_adicionar" (click)="adicionarAoCarrinho('X-Burger Simples', 5.99, 'assets/images/xburger.png')">Adicionar</button>
+  </div>
+
+  <div id="item">
+    <img src="assets/images/minipizza.png" alt="minipizza" />
+    <p class="texto_1">Mini Pizza<br>1 Unidade<br>R$<span id="preco">6,49</span></p>
+    <button class="btn_adicionar" (click)="adicionarAoCarrinho('Mini Pizza', 6.49, 'assets/images/minipizza.png')">Adicionar</button>
+  </div>
+
+  <div id="item">
+    <img src="assets/images/esfihacarne.png" alt="esfihacarne" />
+    <p class="texto_1">Esfiha de Carne<br>1 Unidade<br>R$<span id="preco">3.49</span></p>
+    <button class="btn_adicionar" (click)="adicionarAoCarrinho('Esfiha de Carne', 3.49, 'assets/images/esfihacarne.png')">Adicionar</button>
+  </div>
+
+
+
+</div>
+</ion-content>

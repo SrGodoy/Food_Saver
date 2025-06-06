@@ -1,0 +1,27 @@
+
+  
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Centraliza verticalmente */
+  }
+  
+  .image-container img {
+    width: 40vw; 
+    height: 40vh; 
+    object-fit: contain; 
+    cursor: pointer; 
+    transition: transform 0.3s ease; 
+  }
+
+  .h3s {
+    padding-top: 20vh;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    gap: 2px; 
+  }
+  

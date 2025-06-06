@@ -1,2 +1,80 @@
-// For information on how to create your own theme, please see:
-// http://ionicframework.com/docs/theming/
+/* src/theme/variables.scss */
+
+
+:root {
+    --ion-color-background: #FFFFFF; 
+    --ion-color-text-primary: #333333; 
+    --ion-color-text-secondary: #000000; 
+    --ion-color-header: #FFFFFF; 
+    --ion-color-footer: #FFFFFF; 
+    --ion-color-surface: #FFFFFF; /* Cor de fundo de componentes */
+  }
+  
+ 
+  body {
+    font-family: 'Roboto', sans-serif; 
+  }
+  
+  
+  ion-content {
+    --background: #FFFFFF; 
+    --color: #333333; 
+  }
+
+  ion-tab-button {
+    --font-family: 'Roboto', sans-serif;
+    --color: #333333;
+    --background: #FFFFFF;
+  }
+  
+
+  ion-header{
+    --font-family: 'Roboto', sans-serif; 
+    --color: #333333;
+    --background: #FFFFFF;  
+  }
+
+  ion-title {
+    --font-family: 'Roboto', sans-serif; 
+    --color: #333333;
+    --background: #FFFFFF; 
+  }
+  ion-toolbar{
+    --font-family: 'Roboto', sans-serif;
+    --color: #333333;
+    --background: #FFFFFF;
+  }
+
+
+  ion-tab-button:hover {
+    --color-selected: #16A085 !important; 
+    --background: transparent !important; 
+  }
+  
+  ion-tab-button.tab-selected {
+    --color: #16A085 !important; 
+    --background: transparent !important;
+  }
+
+  ion-tab-button.tab-selected ion-icon {
+    color: #16A085 !important; 
+
+  }
+
+  ion-tab-button.tab-selected ion-label {
+    color: #16A085 !important; 
+  }
+
+  ion-titles {
+    --font-family: 'Roboto', sans-serif;
+    --color: #333333;
+    --background: #FFFFFF;
+  }
+ body{
+  background-color: #FFFFFF;
+ }
+
+ .ion-page-hidden {
+  opacity: 0;
+  display: none; /* Se necessário */
+}

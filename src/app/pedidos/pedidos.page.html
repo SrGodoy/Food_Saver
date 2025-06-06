@@ -1,0 +1,51 @@
+<ion-header>
+</ion-header>
+
+
+
+
+<ion-content>
+
+  <div class="mercado_titulo">
+    Pedidos
+  </div>
+
+  <div id="texto1">
+    <h3>Em Andamento</h3>
+  </div>
+
+  <div id="preco">
+    <p>Total do Carrinho: R$ {{ totalCarrinho | currency }}</p>
+    <p>Taxa de Entrega: R$ {{ taxaEntrega | currency }}</p>
+    <p><strong>Total com Taxa: R$ {{ totalComTaxa | currency }}</strong></p>
+  </div>
+
+  <div class="butao">
+    <ion-button class="verde" (click)="voltar()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+    <ion-button class="verde" (click)="confirmarEntregaDeTodos()">Confirmar Entrega</ion-button>
+  </div>
+
+  <ion-card *ngIf="pedidos.length > 0">
+    <div id="texto1">
+      <h3>Pedidos em Andamento</h3>
+    </div>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let pedido of pedidos">
+          <ion-label class="concluido"><p>{{ pedido.nome }} - {{ pedido.status }}</p></ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <div *ngIf="pedidosConcluidos.length > 0">
+    <h3>Pedidos Concluídos</h3>
+    <ion-list>
+      <ion-item *ngFor="let pedido of pedidosConcluidos">
+        <ion-label class="concluido"><p>{{ pedido.nome }} - Concluído</p></ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

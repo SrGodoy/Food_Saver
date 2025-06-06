@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .mercado_titulo {
+    font-size: 28px;             
+    text-align: center;          
+    width: 100%;
+    margin: 0;
+    padding: 2px;
+    font-weight: bold;
+    color: #333333;
+    background-color: #FFFFFF;
+  }
+  
+ 
+
+
+  ion-header {
+    height: 10vh;              
+    box-shadow: none;
+  }
+
+
+  ion-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  ion-menu-button {
+    font-size: 24px;      
+  }
+
+  .conteudo{
+    width: auto;
+    height: 10vh;
+   padding-bottom: 30px;
+   gap: 10px;
+  }
+
+
+  .pessoa img{
+    width: 100px;
+    height: auto;
+  }
+  .pessoa{
+    display: flex;
+    padding-bottom: 10px;
+
+  }
+  .pessoa h3 {
+    padding-left: 30px;
+  }
+
+  #opcao_1 h3 {
+    text-align: left;
+    font-size: 25px;
+  }
+
+  #opcao_1 p {
+    text-align: left;
+    font-size: 18px
+    
+  }
+  #opcao_1 img {
+    
+    width: 24px; 
+    height: 24px; 
+  }
+
+#opcao_1{
+  display: grid;                     
+  grid-template-columns: 1fr 5fr 1fr;           
+  column-gap: 10px;        
+  padding: 6px;
+  border-bottom: 2px #333333 solid;
+}
+
+
+#texto {
+  text-align: left;
+  display: flex;
+  flex-direction: column; 
+  text-align: center; 
+  width: fit-content;
+}

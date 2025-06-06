@@ -1,0 +1,144 @@
+.mercado_titulo {
+    display: grid;
+    font-size: 28px;             
+    text-align: center;          
+    width: 100%;
+    margin: 0;
+    padding: 2px;
+    font-weight: bold;
+    color: #333333;
+    background-color: #FFFFFF;
+  }
+
+  .mercado_titulo img{
+    padding-right: 70px;
+    width: auto;
+    height: 30px;
+  }
+  
+ 
+
+
+#opcao_1 h3 {
+    text-align: left;
+    font-size: 25px;
+  }
+
+  #opcao_1 p {
+    text-align: left;
+    font-size: 18px
+  }
+
+  #preco{
+    font-size: 20px;
+    text-align: right;
+    padding-right: 10px;
+  }
+
+  #texto1{
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 2px #333333 solid;
+
+  }
+
+  #texto2{
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 2px #333333 solid;
+
+  }
+
+  #texto2 img{
+    width: auto;
+    height: 70px;
+  }
+
+
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .checkbox {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  
+  
+  .checkbox.checked::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 2px;
+  }
+  
+  .campo-troco input {
+    background-color: white; 
+    color: white; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .campo-troco input::placeholder {
+    color: rgb(0, 0, 0); 
+    opacity: 1;
+  }
+
+  .campo-troco label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+  }
+
+  #texto1 label{
+    font-size: 20px;
+  }
+
+  .butao{
+    display: flex;
+  }
+
+  .verde{
+    width: 60vw;
+    align-self: flex-end;
+    background-color: #16A085;
+    color: white;
+    --background: #16A085;
+    --color: white;
+    border: none;
+  }
+
+  .verde:hover{
+    background-color: #1abc9c;
+  }
+
+
+  .vermelho{
+    width:40vw;
+    align-self: flex-start;
+    background-color: #d6d6d6;
+    color: white;
+    --background: #c01b1b;
+    --color: white;
+    border: none;
+  }
+
+  .vermelho{
+    background-color: #da3535;
+  }

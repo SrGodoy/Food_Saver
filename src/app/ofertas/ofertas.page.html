@@ -1,0 +1,63 @@
+<ion-header>
+
+</ion-header>
+
+
+<ion-content id="main-content">
+  <ion-title class="mercado_titulo">
+   <h3>Ofertas</h3>
+  </ion-title>
+  <div class="produtos">
+    
+    <div id="item">
+      <img src="assets/images/pao.png" alt="Pão Francês" />
+      <p class="texto_1">Pão Francês<br>1 Unidade<br>R$<span id="preco">0,50</span></p>
+      <button class="btn_adicionar" (click)="adicionarAoCarrinho('Pão Francês', 0.50, 'assets/images/pao.png')">Adicionar</button>
+    </div>
+  
+   
+    <div id="item">
+      <img src="assets/images/frango_pacote.png" alt="Frango Pacote" />
+      <p class="texto_1">Frango Pacote<br>1 Kg<br>R$<span id="preco">25,00</span></p>
+      <button class="btn_adicionar" (click)="adicionarAoCarrinho('Frango Pacote', 25.00, 'assets/images/frango_pacote.png')">Adicionar</button>
+    </div>
+  
+
+  
+  <div id="item">
+    <img src="assets/images/coca.png" alt="coca-cola" />
+    <p class="texto_1">Coca-Cola<br>350ml<br>R$<span id="preco">1,99</span></p>
+    <button class="btn_adicionar" (click)="adicionarAoCarrinho('Coca-Cola', 1.99, 'assets/images/coca.png')">Adicionar</button>
+  </div>
+  
+  <div id="item">
+    <img src="assets/images/paoqueijo.png" alt="Pão de QUeijo congelado" />
+    <p class="texto_1">Pão de Queijo Congelado<br>1kg<br>R$<span id="preco">20,99</span></p>
+    <button class="btn_adicionar" (click)="adicionarAoCarrinho('Pão de Queijo Congelado', 20.99, 'assets/images/paoqueijo.png')">Adicionar</button>
+  </div>
+
+  <div id="item">
+    <img src="assets/images/leite.png" alt="leite integral" />
+    <p class="texto_1">Leite Integral<br>1 Litro<br>R$<span id="preco">2,99</span></p>
+    <button class="btn_adicionar" (click)="adicionarAoCarrinho('Leite Integral', 2.99, 'assets/images/leite.png')">Adicionar</button>
+  </div>
+
+  <div id="item">
+    <img src="assets/images/frangofrito.png" alt="frango frito" />
+    <p class="texto_1">Frango Frito<br>500g<br>R$<span id="preco">15,99</span></p>
+    <button class="btn_adicionar" (click)="adicionarAoCarrinho('Frango Frito', 15.99, 'assets/images/frangofrito.png')">Adicionar</button>
+  </div>
+
+  <div id="item">
+    <img src="assets/images/waffer.png" alt="biscoito waffer" />
+    <p class="texto_1">Biscoito Waffer<br>100g<br>R$<span id="preco">2,09</span></p>
+    <button class="btn_adicionar" (click)="adicionarAoCarrinho('Biscoito Waffer', 2.09, 'assets/images/waffer.png')">Adicionar</button>
+  </div>
+
+  
+
+
+
+
+</div>
+</ion-content>

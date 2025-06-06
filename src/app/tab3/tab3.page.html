@@ -1,17 +1,78 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <div class="mercado_titulo">
+  Perfil
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+ <div class="pessoa">
+  <img src="assets/images/paul.png" alt="Foto de Perfil">
+  <div id = "opcao_1">
+    <h3> Paul Diano</h3>
+  </div>
+ </div>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+<div class="conteudo">
+
+  <div id="opcao_1">
+    <img src="assets/icon/zapp.png" alt="Simbolo Zapzap">
+    <div id="texto">
+      <h3>Contato</h3>
+      <p>Entre em Contato</p>
+    </div>
+    <img src="assets/icon/seta.png" alt="Seta">
+  </div>
+
+
+  <div id="opcao_1" (click)="toPedidos()">
+    <img src="assets/icon/pedidos.png" alt="Simbolo Pedidos">
+    <div id="texto">
+      <h3>Pedidos</h3>
+      <p>Acompanhe seus Pedidos</p>
+    </div>
+    <img src="assets/icon/seta.png" alt="Seta">
+  </div>
+
+  
+  <div id="opcao_1">
+    <img src="assets/icon/pagamento.png" alt="Simbolo Pagamento">
+    <div id="texto">
+      <h3>Metodos de Pagamento</h3>
+      <p>Metodos de pagamento salvos</p>
+    </div>
+    <img src="assets/icon/seta.png" alt="Seta">
+  </div>
+
+  <div id="opcao_1">
+   <img src="assets/icon/configuracao.png" alt="Simbolo Configuração">
+    <div id="texto">
+      <h3>Configuração</h3>
+      <p>Altere Foto, Nome, Notificações</p>
+    </div>
+    <img src="assets/icon/seta.png" alt="Seta">
+  </div>
+
+  <div id="opcao_1">
+    <img src="assets/icon/ajuda.png" alt="Simbolo Ajuda">
+    <div id="texto">
+      <h3>Precisa de Ajuda ?</h3>
+      <p>Duvidas em relação ao uso do Aplicativo</p>
+    </div>
+    <img src="assets/icon/seta.png" alt="Seta">
+  </div>
+
+
+  <div id="opcao_1">
+    <img src="assets/icon/acessi.png" alt="Simbolo Acessibilidade">
+    <div id="texto">
+      <h3>Opções de Acessibilidade</h3>
+      <p>Brilho, opções de cores, leitores de texto</p>
+    </div>
+    <img src="assets/icon/seta.png" alt="Seta">
+  </div>
+</div>
+
+
 </ion-content>

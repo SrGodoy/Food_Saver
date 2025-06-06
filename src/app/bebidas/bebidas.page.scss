@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .mercado_titulo2{
+    font-size: 28px;             
+    text-align: center;           
+    width: 100%;
+    margin: 0;
+    padding-top: 100px;
+    font-weight: bold;
+    color: #333333;
+    background-color: #FFFFFF;
+  }
+
+  .conteudo{
+    padding-top: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding-left: 20px;
+  }
+.item{
+    align-items: center;
+    
+}
+
+  .item p {
+    text-align: center;
+
+  }
+
+  .item img{
+    width: auto;
+    height: 130px;
+  }
+
+  .menor{
+    padding-top: 40px;
+    display: flex;
+    gap: 10px;
+    
+  }
+  .menor p {
+    text-align: left;
+    font-size: 18px;  
+}
+  .menor img{
+    width: 40px;
+    height: 40px;
+
+  }

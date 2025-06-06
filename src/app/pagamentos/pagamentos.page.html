@@ -1,0 +1,61 @@
+<ion-header >
+
+</ion-header>
+
+<ion-content>
+  <div class="mercado_titulo">
+    <img src="assets/icon/xis.png" (click)="irParaMenu()" alt="botão X" >
+    Pagamento
+      </div>
+      <div id="texto1">
+        <h3>Cartão</h3>
+      <img src="assets/images/cartao.png" alt="cartões">
+      </div>
+
+      <div id="texto2">
+        <h3>Pix</h3>
+      <img src="assets/images/pix.png" alt="Pix">
+      </div>
+
+      <div id="texto1">
+        <h3>Na Entrega</h3>
+       
+        <div class="checkbox-container" (click)="toggleCheckbox()">
+          <div class="checkbox" [class.checked]="isChecked"></div>
+          <label>Cartão ou Pix</label>
+        </div>
+       
+      
+        <div class="checkbox-container" (click)="toggleCheckbox()">
+          <div class="checkbox" [class.checked]="isChecked"></div>
+          <label>Dinheiro</label>
+        </div>
+          <div class="campo-troco">
+            <label for="valorEspecie"><p>Valor em espécie:</p></label>
+            <input type="text" id="valorEspecie" placeholder="Digite o valor">
+          </div>
+        </div>
+
+        <div id="texto1">
+          <div class="checkbox-container" (click)="toggleCheckbox()">
+            <div class="checkbox" [class.checked]="isChecked"></div>
+          <h3>Retirar no Mercado</h3>
+          </div>
+          </div>
+      
+    
+
+      
+  <div id ="preco">
+    <p>Total do Carrinho: R$ {{ totalCarrinho }}</p>
+    <p>Taxa de Entrega: R$ {{ taxaEntrega }}</p>
+    <p><strong>Total com Taxa: R$ {{ totalComTaxa }}</strong></p>
+  </div>
+<div class="butao">
+  <ion-button class="vermelho" (click)="irParaCancelar()">Cancelar</ion-button>
+  <ion-button class="verde" (click)="irParaPedidos()">Confirmar Pagamento</ion-button>
+</div>
+
+
+
+</ion-content>

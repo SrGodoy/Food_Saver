@@ -1,17 +1,51 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="voltarLoja()">
+        <ion-icon name="close" class="xis"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <div class="mercado_titulo">
+      Carrinho de Compras
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
-</ion-content>
+
+
+
+  <!-- Verifica se há itens no carrinho -->
+  <ion-content >
+   <div class="titulopadrao">Carrinho de Compras</div>
+    <div class="itens-carrinho" *ngIf="itensCarrinho.length > 0">
+      <ion-list>
+        <ion-item *ngFor="let item of itensCarrinho">
+          <ion-thumbnail slot="start">
+            <img [src]="item.imageUrl" alt="{{ item.name }}">
+          </ion-thumbnail>
+          <ion-label>
+            <h2 style="font-size: 18px;">{{ item.name }}</h2>
+            <p style="font-size: 18px;">R$ {{ item.price }} x {{ item.quantity }}</p>
+          </ion-label>
+          <ion-button fill="clear" color="danger" (click)="removerItem(item.id)" style="font-size: 18px;">Remover</ion-button>
+        </ion-item>
+      </ion-list>
+  
+      <!-- Exibe o total do carrinho -->
+      <div class="total-carrinho">
+        <h3>Total: R$ {{ totalCarrinho.toFixed(2) }}</h3>
+      </div>
+    </div>
+  
+    <!-- Caso o carrinho esteja vazio -->
+    <div *ngIf="itensCarrinho.length === 0">
+      <p>Seu carrinho está vazio. Adicione produtos!</p>
+    </div>
+<div class="butao">
+    <ion-button  class="voltar-btn" (click)="voltarLoja()">Voltar à loja</ion-button>
+
+    <ion-button class="comprar-btn" (click)="irParaPagamentos()">Comprar</ion-button>
+</div>
+   
+  </ion-content>

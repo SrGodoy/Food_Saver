@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .mercado_titulo {
+    font-size: 13px;             
+    text-align: center;           
+    width: 100%;
+    margin: 0;
+    padding: 2px;
+    font-weight: bold;
+    color: #333333;
+    background-color: #FFFFFF;
+  }
+  #voltar {
+    position: absolute; 
+    left: 0;
+    padding-left:6px ;
+   padding-bottom: 10px;
+    width: 40px; 
+    height: 30px;
+    cursor: pointer; 
+  }
+
+
+
+  ion-header {
+    height: 15vh;                 
+    box-shadow: none;
+  }
+
+
+  ion-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  ion-menu-button {
+    font-size: 24px;      
+  }
+  
+  ion-searchbar {
+    width: 80vw;                 
+    height: 10vh;                  
+    --background: #E6E6E6;        
+    --border-radius: 3px;         
+    --padding-start: 5px;         
+    --padding-end: 5px;           
+    --box-shadow: none;           
+    --border-width: 0px;          
+  }
+  ion-searchbar input {
+    font-size: 10px;  
+  }
+
+
+
+  ion-searchbar ion-icon {
+    color: #333333;                
+  }
+
+  .texto_1 p{
+    font-size: 26px;
+ }
+
+
+ //dessa pagina 
+ .produtos {
+  padding: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px; 
+  width: 100%;
+}
+
+#item {
+  height: auto;
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between; 
+  align-items: center; 
+  background-color: #E6E6E6;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+#item img {
+  width: 60px; 
+  height: 60px; 
+  object-fit: contain; 
+  padding-right: 10px;
+}
+
+#item p {
+  font-size: 20px;
+  flex: 1; 
+  margin: 0 10px; 
+  font-size: 13px;
+  color: #333333;
+  
+}
+
+
+.btn_adicionar {
+  height: 37px;
+  width: 70px;
+  background-color: #16A085;
+  color: white; 
+  font-size: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn_adicionar:hover {
+  background-color: #13856f;
+}
+.texto_1{
+  font-size: 16px!important;
+}

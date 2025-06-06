@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+    <h3 class="mercado_titulo2">Bebidas</h3>
+
+
+
+   <div class="conteudo">
+    <div class="item" (click)="toSemAlcool()">
+ <img src="assets/icon/semalco.png" alt="Bebidas Sem Alcool">
+ <ion-title class="mercado_titulo">
+  <h3>Sem Álcool</h3>
+ </ion-title>
+</div>
+
+<div class="item">
+ <img src="assets/icon/alco.png" (click)="toComAlcool()" alt="Bebidas com Alcool">
+ <ion-title class="mercado_titulo">
+  <h3>Alcólicas</h3>
+ </ion-title>
+</div>
+</div>
+
+<div class="menor">
+<img src="assets/icon/18.png" alt="Proibido para Menores de 18 Anos">
+<p class="18menor">Vendemos bebidas alcoólicas apenas<br>
+  para maiores de 18 anos.<br> 
+  Respeitamos a legislação <br>
+  e promovemos o consumo responsável.</p>
+</div>
+</ion-content>

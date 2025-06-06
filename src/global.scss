@@ -25,13 +25,57 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
+:root {
+    --ion-color-background: #FFFFFF; /* Cor de fundo para todo o app */
+    --ion-color-text-primary: #333333; /* Cor do texto principal */
+    --ion-color-text-secondary: #000000; /* Cor do texto secundário, se necessário */
+    --ion-color-header: #FFFFFF; /* Cor do cabeçalho */
+    --ion-color-footer: #FFFFFF; /* Cor do rodapé */
+    --ion-color-surface: #FFFFFF; /* Cor de fundo de componentes */
+  }
+  
+ 
+  body {
+    font-family: 'Roboto', sans-serif; 
+  }
+  
+  /* Garantir que o conteúdo e as páginas também tenham a mesma configuração de fundo e texto */
+  ion-content {
+    --background: #FFFFFF; /* Garantir que o conteúdo tenha o fundo branco */
+    --color: #333333; /* Garantir que o texto tenha a cor #333333 */
+  }
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+  ion-tab-button {
+    --font-family: 'Roboto', sans-serif; /* Garantir que o título use a fonte Roboto */
+    --color: #333333;
+    --background: #FFFFFF;  /* Garantir a cor do texto */
+  }
+  
+
+  ion-header{
+    --font-family: 'Roboto', sans-serif; /* Garantir que o título use a fonte Roboto */
+    --color: #333333;
+    --background: #FFFFFF;  /* Garantir a cor do texto */
+  }
+
+  ion-title {
+    --font-family: 'Roboto', sans-serif; /* Garantir que o título use a fonte Roboto */
+    --color: #333333;
+    --background: #FFFFFF;  /* Garantir a cor do texto */
+  }
+  ion-toolbar{
+    --font-family: 'Roboto', sans-serif; /* Garantir que o título use a fonte Roboto */
+    --color: #333333;
+    --background: #FFFFFF;  /* Garantir a cor do texto */
+  }
+
+
+  ion-tab-button:hover {
+    --color: #16A085; /* Cor do texto e ícone ao passar o mouse */
+    --background: #FFFFFF !important; /* Mantém o fundo transparente ao passar o mouse */
+  }
+  
+  /* Ajusta o estilo dos ícones dentro do tab-button */
+  ion-tab-button ion-icon {
+    transition: color 0.3s ease; /* Transição suave para a cor do ícone */
+  }

@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .mercado_titulo {
+    font-size: 13px;              /* Tamanho do título, ajustado para ficar proporcional */
+    text-align: center;           /* Centraliza o título */
+    width: 100%;
+    margin: 0;
+    padding: 2px;
+    font-weight: bold;
+    color: #333333;
+    background-color: #FFFFFF;
+  }
+  
+ 
+
+
+  ion-header {
+    height: 15vh;                 /* Altura do cabeçalho ajustada para 20vh */
+    box-shadow: none;
+  }
+
+
+  ion-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  ion-menu-button {
+    font-size: 24px;      
+  }
+  
+
+  ion-searchbar input {
+    font-size: 10px;  
+  }
+
+
+
+  ion-searchbar ion-icon {
+    color: #333333;                
+  }
+
+  .texto_1{
+    font-size: 11px;
+ }
+  
+
+ .xis {
+  font-size: 40px;         
+  color: #333333;              
+}
+
+
+.itens-carrinho {
+  margin: 20px;
+}
+
+ion-list {
+  margin-top: 10px;
+}
+
+ion-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 3px solid #ccc;
+  padding-bottom: 10px;
+}
+
+ion-thumbnail {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+ion-label h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+ion-label p {
+  font-size: 16px;
+  margin: 0;
+}
+
+ion-button {
+  font-size: 14px;
+}
+
+.total-carrinho {
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+}
+
+ion-button {
+  margin: 10px;
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+
+ion-button[color="success"] {
+  background-color: #28a745;
+  color: white;
+}
+
+ion-button[color="medium"] {
+  background-color: #6c757d;
+  color: white;
+}
+
+ion-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ion-buttons ion-button {
+  flex: 1;
+  margin: 5px;
+}
+
+.titulopadrao {
+  font-size: 25px;             
+  text-align: center;           
+  width: 100%;
+  padding-top: 10px;
+  font-weight: bold;
+  color: #333333;
+  background-color: #FFFFFF;
+}
+
+.butao {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.butao ion-button {
+  
+  flex: 1;
+  font-size: 18px;
+  border-radius: 4px;
+  padding: 10px 0;
+}
+
+.butao .comprar-btn {
+  background-color: #16A085;
+  color: white;
+  --background: #16A085;
+  --color: white;
+  border: none;
+}
+
+.butao .comprar-btn:hover {
+  background-color: #1abc9c;
+}
+
+.butao .voltar-btn {
+  background-color: #6c757d;
+  color: white;
+  --background: #6c757d;
+  --color: white;
+  border: none;
+}
+
+.butao .voltar-btn:hover {
+  background-color: #5a6268;
+}
+p .preco {
+  font-size: 16px;
+}
