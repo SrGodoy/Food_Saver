@@ -48,34 +48,6 @@ const routes: Routes = [
     loadChildren: () => import('./pagamentos/pagamentos.module').then( m => m.PagamentosPageModule)
   },
   {
-    path: 'bebidas',
-    loadChildren: () => import('./bebidas/bebidas.module').then( m => m.BebidasPageModule)
-  },
-  {
-    path: 'bebidas-sem',
-    loadChildren: () => import('./bebidas-sem/bebidas-sem.module').then( m => m.BebidasSemPageModule)
-  },
-  {
-    path: 'bebidas-com',
-    loadChildren: () => import('./bebidas-com/bebidas-com.module').then( m => m.BebidasComPageModule)
-  },
-  {
-    path: 'pratos-quentes',
-    loadChildren: () => import('./pratos-quentes/pratos-quentes.module').then( m => m.PratosQuentesPageModule)
-  },
-  {
-    path: 'pratos-frios',
-    loadChildren: () => import('./pratos-frios/pratos-frios.module').then( m => m.PratosFriosPageModule)
-  },
-  {
-    path: 'acompanha',
-    loadChildren: () => import('./acompanha/acompanha.module').then( m => m.AcompanhaPageModule)
-  },
-  {
-    path: 'sobremesa',
-    loadChildren: () => import('./sobremesa/sobremesa.module').then( m => m.SobremesaPageModule)
-  },
-  {
     path: 'combos',
     loadChildren: () => import('./combos/combos.module').then( m => m.CombosPageModule)
   },

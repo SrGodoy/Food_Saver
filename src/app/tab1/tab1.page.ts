@@ -60,21 +60,7 @@ export class Tab1Page implements OnInit{
   goToPaes() {
     this.router.navigateByUrl('/tabs/paes');
   }
-  goToBebidas() {
-    this.router.navigateByUrl('/bebidas');
-  }
-  goToPratosQuentes() {
-    this.router.navigateByUrl('/pratos-quentes');
-  }
-  goToPratosFrios() {
-    this.router.navigateByUrl('/pratos-frios');
-  }
-  goToAcompanha() {
-    this.router.navigateByUrl('/acompanha');
-  }
-  goToSobremesas() {
-    this.router.navigateByUrl('/sobremesa');
-  }
+  
   goToCombos() {
     this.router.navigateByUrl('/combos');
   }
