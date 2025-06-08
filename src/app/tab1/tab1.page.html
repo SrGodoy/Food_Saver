@@ -1,32 +1,36 @@
 
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Produtos Cadastrados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
 
 <ion-content>
-
-
-  <ion-title class="titulopadrao1">
-    Ofertas do Dia
-  </ion-title>
-
-
-<ion-title class="titulopadrao">
-  Catalogo
-</ion-title>
-
-<div class="catalogo">
-  <div id="categorias"(click)="goToPaes()">
-    <img src="assets/icon/pao.png" alt="Categoria Pães" />
-    <p class="texto_2">Pães</p>
+  <div class="produtos">
+  <div id="item" *ngFor="let produto of produtos">
+    <img 
+      [src]="produto.image || 'assets/images/placeholder.png'" 
+      [alt]="produto.name" />
+    <p class="texto_1">
+      {{produto.name}}
+      <br>
+      {{produto.quantity}} {{produto.quantity === 1 ? 'Unidade' : 'Unidades'}}
+      <br>
+      R$ <span id="preco">{{formatarPreco(produto.price)}}</span>
+      <br>Validade: {{formatarData(produto.expirationDate)}}
+    </p>
+    <button class="btn_adicionar" 
+            (click)="adicionarAoCarrinho(produto.name, produto.price, produto.image)">
+      Adicionar
+    </button>
   </div>
-  
-  <div id="categorias" (click)="goToCombos()">
-    <img src="assets/icon/combo.png" alt="Categoria Combos" />
-    <p class="texto_2">Combos</p>
-  </div>
-  <div id="categorias" (click)="goToOfertas()">
-    <img src="assets/icon/oferta.png" alt="Categoria Ofertas" />
-    <p class="texto_2">Ofertas</p>
-  </div>
-  
+  <div *ngIf="produtos.length === 0" class="lista-vazia">
+      Nenhum produto cadastrado ainda.
+    </div>
 </div>
-
+   
 </ion-content>
+
+  

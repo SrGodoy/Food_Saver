@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
-import { IndexedDBService } from './services/indexed-db.service';
+
 
 
 @Component({
@@ -17,14 +17,14 @@ export class AppComponent {
   constructor(
     private storage: Storage,
     private router: Router,
-    private indexedDBService: IndexedDBService
+    
   ) {
     this.initializeApp();
 
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         const hiddenTabsRoutes = ['/tabs/tab1', '/tabs/tab2', '/tabs/tab3', '/inicio'];
-        const hiddenMenuRoutes = ['/tab3', '/inicio', '/pagamentos', '/pedidos'];
+        const hiddenMenuRoutes = ['/tab3', '/inicio', '/pagamentos', '/pedidos', 'cadastro'];
 
         this.showTabs = !hiddenTabsRoutes.some(route => event.url.startsWith(route));
         this.showMenu = !hiddenMenuRoutes.some(route => event.url.startsWith(route));
@@ -35,7 +35,7 @@ export class AppComponent {
   
 
   async initializeApp() {
-    await this.indexedDBService.initializeDatabase();
+ 
     await this.storage.create();
 
     const hasSeenInicio = localStorage.getItem('hasSeenInicio');
@@ -52,29 +52,5 @@ export class AppComponent {
     console.log('Buscando: ', this.searchText);
   }
 
-  goToPaes() {
-    this.router.navigateByUrl('/tabs/paes');
-  }
-  goToBebidas() {
-    this.router.navigateByUrl('/bebidas');
-  }
-  goToPratosQuentes() {
-    this.router.navigateByUrl('/pratos-quentes');
-  }
-  goToPratosFrios() {
-    this.router.navigateByUrl('/pratos-frios');
-  }
-  goToAcompanha() {
-    this.router.navigateByUrl('/acompanha');
-  }
-  goToSobremesas() {
-    this.router.navigateByUrl('/sobremesa');
-  }
-  goToCombos() {
-    this.router.navigateByUrl('/combos');
-  }
-  goToOfertas() {
-    this.router.navigateByUrl('/ofertas');
-  }
 
 }

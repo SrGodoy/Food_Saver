@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
 import {Router} from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
-import { IndexedDBService } from '../services/indexed-db.service'; 
 
 @Component({
   selector: 'app-tab1',
@@ -11,68 +11,54 @@ import { IndexedDBService } from '../services/indexed-db.service';
 })
 export class Tab1Page implements OnInit{
   searchText: string = '';
-
-
+  produtos: any[] = [];
 
 
   constructor(private router: Router, private menuCtrl: MenuController, private toastController: ToastController,
-    private indexedDBService: IndexedDBService) { }
+  private storage: Storage  ) { }
 
-  ngOnInit() {
-   
-  }
+ async ngOnInit() {
+    await this.storage.create();
+    this.carregarProdutos();
 
-
-  search(event: any) {
-    console.log('Buscando: ', this.searchText);
-  }
-
-  async adicionarAoCarrinho(nome: string, preco: number, imagem: string) {
-    const quantidade = 1;  
-
-    try {
-      await this.indexedDBService.addItem(nome, preco, quantidade, imagem);
-      this.mostrarToast('Produto adicionado ao carrinho!');
-      
-    } catch (error) {
-      console.error('Erro ao adicionar produto ao carrinho:', error);
-      this.mostrarToast('Erro ao adicionar produto ao carrinho.', 'danger');
-    }
-  }
-
- //notificacao
-  async mostrarToast(mensagem: string, cor: string = 'success') {
-    const toast = await this.toastController.create({
-      message: mensagem,
-      duration: 1000,  
-      color: cor,   
-      position: 'bottom'
+      window.addEventListener('storage', () => {
+      this.carregarProdutos();
     });
-    toast.present();
   }
 
-
-
-
-
-
-
-  goToPaes() {
-    this.router.navigateByUrl('/tabs/paes');
-  }
-  
-  goToCombos() {
-    this.router.navigateByUrl('/combos');
-  }
-  goToOfertas() {
-    this.router.navigateByUrl('/ofertas');
+   async carregarProdutos() {
+    this.produtos = (await this.storage.get('produtos')) || [];
   }
 
+  adicionarAoCarrinho(nome: string, preco: number, imagem: string) {
+    // Implemente sua lógica do carrinho aqui
+    console.log('Produto adicionado:', nome, preco, imagem);
+  }
 
+  //data 
+ formatarData(data: string): string {
+    if (!data) return '';
+    return new Date(data).toLocaleDateString('pt-BR'); // Formato "dd/mm/aaaa"
+  }
+
+  formatarPreco(preco: number): string {
+    return preco.toFixed(2).replace('.', ',');
+  }
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

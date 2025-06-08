@@ -1,0 +1,106 @@
+/* Seu padrão global (mantido igual) */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Header (igual ao seu projeto) */
+ion-header {
+  height: 15vh;
+  box-shadow: none;
+}
+
+ion-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFFFFF; /* Adicionado para consistência */
+}
+
+.mercado_titulo {
+  font-size: 13px;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 2px;
+  font-weight: bold;
+  color: #333333;
+  background-color: #FFFFFF;
+}
+
+#voltar {
+  position: absolute;
+  left: 0;
+  padding-left: 6px;
+  padding-bottom: 10px;
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* Formulário de Cadastro (estilo adaptado ao seu padrão) */
+ion-content {
+  --background: #f5f5f5; /* Fundo claro igual à lista de produtos */
+}
+
+ion-card {
+  background-color: #FFFFFF;
+  border-radius: 3px;
+  box-shadow: none;
+  margin: 10px;
+  padding: 10px;
+}
+
+ion-item {
+  --background: #E6E6E6; /* Igual ao fundo dos itens da lista */
+  --border-radius: 3px;
+  margin-bottom: 10px;
+  --padding-start: 8px;
+  --padding-end: 8px;
+}
+
+ion-label {
+  color: #333333;
+  font-size: 13px !important; /* Mesmo tamanho do seu padrão */
+}
+
+ion-input, ion-textarea {
+  --color: #333333;
+  font-size: 13px !important;
+  --padding-start: 8px;
+}
+
+/* Botões 
+ion-button {
+  --border-radius: 4px;
+  font-size: 12px !important;
+  height: 37px;
+  margin-top: 10px;
+}
+
+/* Botão de câmera */
+ion-button[color="medium"] { /* Botão "Adicionar Foto" */
+  --background: #E6E6E6;
+  --color: #333333;
+}
+
+/* Botão de salvar */
+ion-button[color="success"] {
+  --background: #16A085;
+  --background-hover: #13856f; 
+}
+
+/* Pré-visualização da imagem */
+img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+  margin: 10px auto;
+  border-radius: 3px;
+  border: 1px solid #E6E6E6;
+}
+
+ion-datetime {
+  --padding-start: 0; 
+}

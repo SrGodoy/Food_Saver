@@ -106,3 +106,20 @@
     max-width: 100%; 
   }
 
+img:before {
+  content: "Sem imagem";
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-color: #f0f0f0;
+  text-align: center;
+  line-height: 50px;
+  font-size: 10px;
+  color: #888;
+}
+
+.lista-vazia {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}

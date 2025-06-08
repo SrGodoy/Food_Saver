@@ -1,0 +1,67 @@
+<ion-header>
+
+</ion-header>
+
+
+<ion-content id="ion-padding">
+   <ion-card>
+    <!-- campo nome -->
+    <ion-item>
+      <ion-label position="stacked">Nome *</ion-label>
+      <ion-input [(ngModel)]="product.name" type="text" required></ion-input>
+    </ion-item>
+
+  <!-- campo data -->
+<ion-item>
+    <ion-label position="stacked">Data de vencimento</ion-label>
+    <ion-datetime required
+        [(ngModel)]="product.expirationDate"
+        displayFormat="DD/MM/YYYY"
+        min="{{ minDate }}"
+        max="2025-12-31"
+        placeholder="Selecione a data"
+        ></ion-datetime>
+    
+        
+</ion-item>
+
+
+
+
+    <!-- campo descricao -->
+    <ion-item>
+      <ion-label position="stacked">Descrição</ion-label>
+      <ion-textarea [(ngModel)]="product.description"></ion-textarea>
+    </ion-item>
+
+    <!-- campo quantidade -->
+    <ion-item>
+      <ion-label position="stacked">quantidade</ion-label>
+      <ion-input [(ngModel)]="product.quantity" type="number" min="0"></ion-input>
+    </ion-item>
+
+    <!-- campo preco -->
+    <ion-item>
+      <ion-label position="stacked">preço (R$) *</ion-label>
+      <ion-input [(ngModel)]="product.price" type="number" min="0.01" step="0.01" required></ion-input>
+    </ion-item>
+
+    <!-- botao para adicionar foto -->
+    <ion-button expand="block" (click)="takePicture()" fill="outline">
+      <ion-icon name="camera" slot="start"></ion-icon>
+      {{ product.image ? 'Alterar Foto' : 'Adicionar Foto' }}
+    </ion-button>
+
+    <!-- pre-visualização da imagem -->
+    <div class="ion-text-center" *ngIf="product.image">
+      <img [src]="product.image" style="max-width: 200px; border-radius: 8px; margin: 10px 0;" />
+    </div>
+
+    <!-- botao de salvar -->
+    <ion-button expand="block" (click)="saveProduct()" color="success" [disabled]="!product.name || !product.price">
+      <ion-icon name="save" slot="start"></ion-icon>
+      Salvar Produto
+    </ion-button>
+  </ion-card>
+
+</ion-content>

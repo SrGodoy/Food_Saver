@@ -34,11 +34,14 @@ const routes: Routes = [
     path: 'tab3',
     loadChildren: () => import('./tab3/tab3.module').then(m => m.Tab3PageModule)
   },
-
-  {
-    path: 'paes',
-    loadChildren: () => import('./paes/paes.module').then( m => m.PaesPageModule)
+ 
+ {
+    path: 'cadastro',
+    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
   },
+
+
+
   {
     path: 'pedidos',
     loadChildren: () => import('./pedidos/pedidos.module').then( m => m.PedidosPageModule)
@@ -47,13 +50,10 @@ const routes: Routes = [
     path: 'pagamentos',
     loadChildren: () => import('./pagamentos/pagamentos.module').then( m => m.PagamentosPageModule)
   },
+  
   {
-    path: 'combos',
-    loadChildren: () => import('./combos/combos.module').then( m => m.CombosPageModule)
-  },
-  {
-    path: 'ofertas',
-    loadChildren: () => import('./ofertas/ofertas.module').then( m => m.OfertasPageModule)
+    path: 'cadastro',
+    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
   },
   
 

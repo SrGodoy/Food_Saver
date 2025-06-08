@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IndexedDBService } from '../services/indexed-db.service';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -16,7 +15,6 @@ export class Tab2Page implements OnInit {
 
   constructor(
     private router: Router,
-    private indexedDBService: IndexedDBService,
     private navController: NavController
   ) {}
 
@@ -24,7 +22,6 @@ export class Tab2Page implements OnInit {
 
 
 ngOnInit() {
-   this.carregarItensCarrinho();
   }
 
 
@@ -41,41 +38,7 @@ ngOnInit() {
 
 
   
-  async carregarItensCarrinho() {
-    this.loading = true;
-    try {
-      const itens = await this.indexedDBService.getItems();
-      console.log('Itens carregados do IndexedDB:', itens);
-      this.itensCarrinho = itens || [];
-      this.calcularTotalCarrinho();
-    } catch (error) {
-      console.error('Erro ao carregar itens do carrinho:', error);
-    } finally {
-      this.loading = false;
-    }
-  }
 
-  async removerItem(id: number) {
-    try {
-      // Chama o serviço para remover o item do IndexedDB
-      await this.indexedDBService.deleteItem(id);
-      
-      
-      await this.carregarItensCarrinho();  
-      console.log(`Item com ID ${id} removido com sucesso.`);
-    } catch (error) {
-      console.error('Erro ao remover item:', error);
-    }
-  }
-  
-
-
-  calcularTotalCarrinho() {
-    this.totalCarrinho = this.itensCarrinho.reduce((total, item) => {
-      return total + item.price * item.quantity;
-    }, 0);
-    this.totalComTaxa = this.totalCarrinho + this.taxaEntrega;
-  }
 
 
   irParaPagamentos() {
