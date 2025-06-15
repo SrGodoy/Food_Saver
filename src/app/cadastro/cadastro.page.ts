@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Storage } from '@ionic/storage-angular';
 import { AlertController } from '@ionic/angular';
+import { AngularFirestore } from '@angular/fire/compat/firestore'; // Corrigido o import
 
 @Component({
   selector: 'app-cadastro',
@@ -21,7 +22,8 @@ export class CadastroPage {
 
   constructor(
     private storage: Storage, 
-    private alertController: AlertController
+    private alertController: AlertController,
+    private firestore: AngularFirestore // Injetado o Firestore
   ) {
     this.minDate = new Date().toISOString();
     this.initStorage();
@@ -48,7 +50,7 @@ export class CadastroPage {
   }
 
   async saveProduct() {
-    // Validações reforçadas
+    // Validações
     if (!this.product.name?.trim()) {
       this.showAlert('Atenção', 'Informe o nome do produto!');
       return;
@@ -65,27 +67,23 @@ export class CadastroPage {
     }
 
     try {
-      const produtos = (await this.storage.get('produtos')) || []; // Usando 'produtos' para manter consistência
-      
-      // Adiciona metadados
-      const novoProduto = {
-        ...this.product,
-        id: Date.now().toString(),
-        createdAt: new Date().toISOString()
-      };
+      // 1. Salva localmente (apenas como fallback)
+      await this.storage.set('ultimo_produto', this.product);
 
-      produtos.push(novoProduto);
-      await this.storage.set('produtos', produtos); // Chave corrigida para 'produtos'
-      
-      this.showAlert('Sucesso', 'Produto cadastrado com sucesso!');
+      // 2. Envia para Firebase (caminho principal)
+      await this.firestore.collection('pending_products').add({
+        ...this.product,
+        deviceId: await this.storage.get('device_id'), // Identificador do dispositivo
+        syncStatus: 'pending',
+        timestamp: new Date().toISOString()
+      });
+
+      this.showAlert('Sucesso', 'Produto enviado para sincronização!');
       this.resetForm();
-      
-      // Dispara evento para atualizar a Tab1
-      window.dispatchEvent(new Event('storage'));
-      
+
     } catch (error) {
       console.error('Erro ao salvar produto:', error);
-      this.showAlert('Erro', 'Não foi possível salvar o produto');
+      this.showAlert('Aviso', 'Produto salvo localmente e será sincronizado quando online');
     }
   }
 

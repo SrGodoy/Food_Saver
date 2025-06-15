@@ -3,6 +3,7 @@ import { Storage } from '@ionic/storage-angular';
 import {Router} from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-tab1',
@@ -15,7 +16,7 @@ export class Tab1Page implements OnInit{
 
 
   constructor(private router: Router, private menuCtrl: MenuController, private toastController: ToastController,
-  private storage: Storage  ) { }
+  private storage: Storage, private http: HttpClient  ) { }
 
  async ngOnInit() {
     await this.storage.create();
