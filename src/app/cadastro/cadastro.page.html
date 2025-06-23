@@ -1,67 +1,66 @@
-<ion-header>
 
-</ion-header>
-
-
-<ion-content id="ion-padding">
-   <ion-card>
-    <!-- campo nome -->
+<ion-content class="ion-padding" fullscreen="true">
+  <h3>Cadastro de Produto</h3>
+  <ion-card>
+    <!-- Campos básicos -->
     <ion-item>
       <ion-label position="stacked">Nome *</ion-label>
-      <ion-input [(ngModel)]="product.name" type="text" required></ion-input>
+      <ion-input [(ngModel)]="produto.name" required></ion-input>
     </ion-item>
 
-  <!-- campo data -->
-<ion-item>
-    <ion-label position="stacked">Data de vencimento</ion-label>
-    <ion-datetime required
-        [(ngModel)]="product.expirationDate"
-        displayFormat="DD/MM/YYYY"
-        min="{{ minDate }}"
-        max="2025-12-31"
-        placeholder="Selecione a data"
-        ></ion-datetime>
-    
-        
-</ion-item>
+    <ion-item>
+      <ion-label position="stacked">Preço *</ion-label>
+      <ion-input [(ngModel)]="produto.price" type="number" min="0.01" step="0.01"></ion-input>
+    </ion-item>
 
+    <ion-item>
+      <ion-label position="stacked">Quantidade</ion-label>
+      <ion-input [(ngModel)]="produto.quantity" type="number" min="1"></ion-input>
+    </ion-item>
 
+    <!-- Campos opcionais -->
+    <ion-item>
+      <ion-label position="stacked">Data de Validade</ion-label>
+      <ion-input [(ngModel)]="produto.expirationDate" type="date"></ion-input>
+    </ion-item>
 
-
-    <!-- campo descricao -->
     <ion-item>
       <ion-label position="stacked">Descrição</ion-label>
-      <ion-textarea [(ngModel)]="product.description"></ion-textarea>
+      <ion-textarea [(ngModel)]="produto.description"></ion-textarea>
     </ion-item>
 
-    <!-- campo quantidade -->
-    <ion-item>
-      <ion-label position="stacked">quantidade</ion-label>
-      <ion-input [(ngModel)]="product.quantity" type="number" min="0"></ion-input>
-    </ion-item>
-
-    <!-- campo preco -->
-    <ion-item>
-      <ion-label position="stacked">preço (R$) *</ion-label>
-      <ion-input [(ngModel)]="product.price" type="number" min="0.01" step="0.01" required></ion-input>
-    </ion-item>
-
-    <!-- botao para adicionar foto -->
-    <ion-button expand="block" (click)="takePicture()" fill="outline">
+    <!-- Foto -->
+    <ion-button expand="block" (click)="tirarFoto()">
       <ion-icon name="camera" slot="start"></ion-icon>
-      {{ product.image ? 'Alterar Foto' : 'Adicionar Foto' }}
+      Adicionar Foto
     </ion-button>
 
-    <!-- pre-visualização da imagem -->
-    <div class="ion-text-center" *ngIf="product.image">
-      <img [src]="product.image" style="max-width: 200px; border-radius: 8px; margin: 10px 0;" />
-    </div>
+    <img *ngIf="produto.image" [src]="produto.image" style="max-width: 100%">
 
-    <!-- botao de salvar -->
-    <ion-button expand="block" (click)="saveProduct()" color="success" [disabled]="!product.name || !product.price">
-      <ion-icon name="save" slot="start"></ion-icon>
+    <!-- Botão salvar -->
+    <ion-button 
+      expand="block" 
+      color="primary" 
+      (click)="salvar()"
+      [disabled]="!produto.name || produto.price <= 0">
       Salvar Produto
     </ion-button>
   </ion-card>
-
 </ion-content>
+
+ <ion-footer>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="tab1" [routerLink]="['/tab1']">
+        <ion-icon name="home-outline"></ion-icon>
+        <ion-label>Home</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="tab2" [routerLink]="['/tab2']">
+        <ion-icon name="cart-outline"></ion-icon>
+        <ion-label>Carrinho</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="tab3" [routerLink]="['/tab3']">
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-footer>

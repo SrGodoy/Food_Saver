@@ -13,6 +13,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+             "allowedCommonJsDependencies": [
+        "localforage"],
             "outputPath": "www",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -33,7 +35,11 @@
             ],
             "styles": ["src/global.scss", "src/theme/variables.scss"],
             "scripts": []
+         
+         
+         
           },
+          
           "configurations": {
             "production": {
               "budgets": [
@@ -71,7 +77,9 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "hmr": true,
+          "options": {
+          "proxyConfig": "proxy.conf.json"},
+  
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
@@ -79,9 +87,6 @@
             },
             "development": {
               "buildTarget": "app:build:development"
-            },
-            "ci": {
-              "progress": false
             }
           },
           "defaultConfiguration": "development"
@@ -148,4 +153,7 @@
       "styleext": "scss"
     }
   }
+
+  
 }
+

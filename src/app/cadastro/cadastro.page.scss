@@ -6,9 +6,15 @@
 
 /* Header (igual ao seu projeto) */
 ion-header {
-  height: 15vh;
   box-shadow: none;
 }
+
+ion-content {
+ --overflow-y: auto;     
+  --padding-top: 200px;
+
+}
+
 
 ion-toolbar {
   display: flex;
@@ -101,6 +107,3 @@ img {
   border: 1px solid #E6E6E6;
 }
 
-ion-datetime {
-  --padding-start: 0; 
-}

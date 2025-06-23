@@ -41,6 +41,8 @@
   
   /* Garantir que o conteúdo e as páginas também tenham a mesma configuração de fundo e texto */
   ion-content {
+    --padding-top: 15vh;
+    --padding-bottom: 70px;
     --background: #FFFFFF; /* Garantir que o conteúdo tenha o fundo branco */
     --color: #333333; /* Garantir que o texto tenha a cor #333333 */
   }

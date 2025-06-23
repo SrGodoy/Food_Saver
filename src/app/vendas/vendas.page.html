@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Histórico de Vendas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" fullscreen="true">
+
+  <ion-card *ngFor="let venda of vendas">
+    <ion-card-header>
+      <ion-card-title>{{ venda.nome }}</ion-card-title>
+      <ion-card-subtitle>Vendida em {{ venda.data_venda | date:'dd/MM/yyyy - HH:mm' }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p><strong>Quantidade:</strong> {{ venda.quantidade }}</p>
+      <p><strong>Preço:</strong> R$ {{ venda.preco }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-text color="medium" *ngIf="vendas.length === 0">
+    <p class="ion-text-center">Nenhuma venda registrada.</p>
+  </ion-text>
+
+</ion-content>

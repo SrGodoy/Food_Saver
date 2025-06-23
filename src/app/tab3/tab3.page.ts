@@ -19,6 +19,9 @@ export class Tab3Page {
     this.router.navigate(['/cadastro']); // Navega para a página de cadastro
   }
 
+  toVendas() {
+     this.router.navigate(['vendas']); // Navega para a página de vendas
+  }
 
 
 

@@ -1,107 +1,72 @@
 import { Component } from '@angular/core';
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
-import { Storage } from '@ionic/storage-angular';
+import { Camera, CameraResultType } from '@capacitor/camera';
 import { AlertController } from '@ionic/angular';
-import { AngularFirestore } from '@angular/fire/compat/firestore'; // Corrigido o import
+import { Produto } from '../models/produto';
+import { Storage } from '@ionic/storage-angular';
+import { SyncService } from '../services/sync.service';
 
 @Component({
   selector: 'app-cadastro',
-  templateUrl: './cadastro.page.html',
-  styleUrls: ['./cadastro.page.scss'],
+  templateUrl: 'cadastro.page.html'
 })
 export class CadastroPage {
-  minDate: string;
-  product = {
-    name: '',
-    expirationDate: '',
-    description: '', 
-    quantity: 0,
-    price: 0,
-    image: '' // URL ou base64 da imagem
-  };
+  produto: Produto = this.novoProduto();
 
   constructor(
-    private storage: Storage, 
-    private alertController: AlertController,
-    private firestore: AngularFirestore // Injetado o Firestore
-  ) {
-    this.minDate = new Date().toISOString();
-    this.initStorage();
-  }
+    private storage: Storage,
+    private alertCtrl: AlertController,
+    private syncService: SyncService
+    
+  ) {}
 
-  async initStorage() {
-    await this.storage.create();
-  }
-
-  async takePicture() {
-    try {
-      const image = await Camera.getPhoto({
-        quality: 90,
-        allowEditing: false,
-        resultType: CameraResultType.Base64,
-        source: CameraSource.Prompt
-      });
-
-      this.product.image = `data:image/jpeg;base64,${image.base64String}`;
-    } catch (error) {
-      console.error('Erro ao capturar imagem:', error);
-      this.showAlert('Erro', 'Não foi possível acessar a câmera');
-    }
-  }
-
-  async saveProduct() {
-    // Validações
-    if (!this.product.name?.trim()) {
-      this.showAlert('Atenção', 'Informe o nome do produto!');
-      return;
-    }
-
-    if (this.product.price <= 0 || isNaN(this.product.price)) {
-      this.showAlert('Atenção', 'O preço deve ser maior que zero!');
-      return;
-    }
-
-    if (!this.product.expirationDate) {
-      this.showAlert('Atenção', 'Selecione a data de validade!');
-      return;
-    }
-
-    try {
-      // 1. Salva localmente (apenas como fallback)
-      await this.storage.set('ultimo_produto', this.product);
-
-      // 2. Envia para Firebase (caminho principal)
-      await this.firestore.collection('pending_products').add({
-        ...this.product,
-        deviceId: await this.storage.get('device_id'), // Identificador do dispositivo
-        syncStatus: 'pending',
-        timestamp: new Date().toISOString()
-      });
-
-      this.showAlert('Sucesso', 'Produto enviado para sincronização!');
-      this.resetForm();
-
-    } catch (error) {
-      console.error('Erro ao salvar produto:', error);
-      this.showAlert('Aviso', 'Produto salvo localmente e será sincronizado quando online');
-    }
-  }
-
-  resetForm() {
-    this.product = { 
-      name: '', 
-      expirationDate: '', 
-      description: '', 
-      quantity: 0, 
-      price: 0, 
-      image: '' 
+  novoProduto(): Produto {
+    return {
+      id: '',
+      name: '',
+      quantity: 1,
+      price: 0,
+      syncStatus: 'pending',
+      createdAt: new Date().toISOString()
     };
   }
 
-  async showAlert(header: string, message: string) {
-    const alert = await this.alertController.create({
-      header,
-      message,
+  async tirarFoto() {
+    try {
+      const foto = await Camera.getPhoto({
+        quality: 80,
+        resultType: CameraResultType.Base64
+      });
+      this.produto.image = `data:image/jpeg;base64,${foto.base64String}`;
+    } catch (erro) {
+      console.log('Usuário cancelou ou erro na câmera');
+    }
+  }
+
+  async salvar() {
+    // Validação básica
+    if (!this.produto.name || this.produto.price <= 0) {
+      this.mostrarAlerta('Atenção', 'Nome e preço são obrigatórios!');
+      return;
+    }
+
+    // Gera ID e timestamp
+    this.produto.id = 'prod_' + Date.now();
+    this.produto.createdAt = new Date().toISOString();
+
+    // Salva no storage
+    const produtos = await this.storage.get('produtos') || [];
+    produtos.push(this.produto);
+    await this.storage.set('produtos', produtos);
+    await this.syncService.sincronizarProdutos();
+
+    this.mostrarAlerta('Sucesso', 'Produto salvo!');
+    this.produto = this.novoProduto();
+  }
+
+  async mostrarAlerta(titulo: string, mensagem: string) {
+    const alert = await this.alertCtrl.create({
+      header: titulo,
+      message: mensagem,
       buttons: ['OK']
     });
     await alert.present();

@@ -21,15 +21,18 @@ export class AppComponent {
   ) {
     this.initializeApp();
 
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        const hiddenTabsRoutes = ['/tabs/tab1', '/tabs/tab2', '/tabs/tab3', '/inicio'];
-        const hiddenMenuRoutes = ['/tab3', '/inicio', '/pagamentos', '/pedidos', 'cadastro'];
+this.router.events.subscribe(event => {
+  if (event instanceof NavigationEnd) {
+    const url = event.urlAfterRedirects || event.url;
 
-        this.showTabs = !hiddenTabsRoutes.some(route => event.url.startsWith(route));
-        this.showMenu = !hiddenMenuRoutes.some(route => event.url.startsWith(route));
-      }
-    });
+    const hiddenTabsRoutes = ['/tabs/tab1', '/tabs/tab2', '/tabs/tab3', '/inicio', '/cadastro' ,'/tab3', ];
+    const hiddenMenuRoutes = ['/tab3', '/inicio', '/pagamentos', '/pedidos', '/cadastro'];
+
+    this.showTabs = !hiddenTabsRoutes.some(route => url.startsWith(route));
+    this.showMenu = !hiddenMenuRoutes.some(route => url.startsWith(route));
+  }
+});
+
   }
 
   
@@ -41,7 +44,7 @@ export class AppComponent {
     const hasSeenInicio = localStorage.getItem('hasSeenInicio');
 
     if (hasSeenInicio) {
-      this.router.navigateByUrl('/tabs/tab1');
+      this.router.navigateByUrl('/tab1');
     } else {
       this.router.navigateByUrl('/inicio');
       localStorage.setItem('hasSeenInicio', 'true');

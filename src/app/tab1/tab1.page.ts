@@ -1,67 +1,41 @@
-import { Component, OnInit } from '@angular/core';
-import { Storage } from '@ionic/storage-angular';
-import {Router} from '@angular/router';
-import { MenuController } from '@ionic/angular';
-import { ToastController } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { ProdutoService } from '../services/produto.service';
+import { CarrinhoService } from '../services/carrinho.service';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page implements OnInit{
-  searchText: string = '';
+export class Tab1Page {
   produtos: any[] = [];
 
+  constructor(
+    private produtoService: ProdutoService,
+    private carrinhoService: CarrinhoService
+  ) {}
 
-  constructor(private router: Router, private menuCtrl: MenuController, private toastController: ToastController,
-  private storage: Storage, private http: HttpClient  ) { }
-
- async ngOnInit() {
-    await this.storage.create();
+  // Este método é chamado toda vez que a aba/tab for exibida
+  ionViewWillEnter() {
     this.carregarProdutos();
+  }
 
-      window.addEventListener('storage', () => {
-      this.carregarProdutos();
+  carregarProdutos() {
+    this.produtoService.listarProdutos().subscribe(res => {
+      if (res.status === 'success') {
+        this.produtos = res.produtos.map(p => {
+          if (p.image && !p.image.startsWith('data:image')) {
+            p.image = 'data:image/jpeg;base64,' + p.image;
+          }
+          return p;
+        });
+      } else {
+        console.error('Falha ao carregar produtos');
+      }
     });
   }
 
-   async carregarProdutos() {
-    this.produtos = (await this.storage.get('produtos')) || [];
+  adicionarAoCarrinho(produto: any) {
+    this.carrinhoService.adicionarProduto(produto);
+    alert(`${produto.name} adicionado ao carrinho!`);
   }
-
-  adicionarAoCarrinho(nome: string, preco: number, imagem: string) {
-    // Implemente sua lógica do carrinho aqui
-    console.log('Produto adicionado:', nome, preco, imagem);
-  }
-
-  //data 
- formatarData(data: string): string {
-    if (!data) return '';
-    return new Date(data).toLocaleDateString('pt-BR'); // Formato "dd/mm/aaaa"
-  }
-
-  formatarPreco(preco: number): string {
-    return preco.toFixed(2).replace('.', ',');
-  }
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  

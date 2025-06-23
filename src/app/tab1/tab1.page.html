@@ -1,36 +1,21 @@
-
 <ion-header>
   <ion-toolbar>
     <ion-title>Produtos Cadastrados</ion-title>
   </ion-toolbar>
 </ion-header>
 
-
-
-<ion-content>
-  <div class="produtos">
-  <div id="item" *ngFor="let produto of produtos">
-    <img 
-      [src]="produto.image || 'assets/images/placeholder.png'" 
-      [alt]="produto.name" />
-    <p class="texto_1">
-      {{produto.name}}
-      <br>
-      {{produto.quantity}} {{produto.quantity === 1 ? 'Unidade' : 'Unidades'}}
-      <br>
-      R$ <span id="preco">{{formatarPreco(produto.price)}}</span>
-      <br>Validade: {{formatarData(produto.expirationDate)}}
-    </p>
-    <button class="btn_adicionar" 
-            (click)="adicionarAoCarrinho(produto.name, produto.price, produto.image)">
-      Adicionar
-    </button>
-  </div>
-  <div *ngIf="produtos.length === 0" class="lista-vazia">
-      Nenhum produto cadastrado ainda.
-    </div>
-</div>
-   
+<ion-content fullscreen="true">
+  <h3> Catalogo </h3>
+  <ion-list>
+    <ion-item *ngFor="let produto of produtos">
+      <ion-thumbnail slot="start">
+        <img [src]="produto.image || 'assets/img/placeholder.png'" alt="Imagem do produto" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ produto.name }}</h2>
+        <p>Preço: {{ produto.price | currency:'BRL' }}</p>
+      </ion-label>
+      <ion-button slot="end" (click)="adicionarAoCarrinho(produto)">Adicionar ao Carrinho</ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>
-
-  

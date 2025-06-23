@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProdutoService } from '../services/produto.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -8,10 +9,26 @@ import {Router} from '@angular/router';
 })
 export class InicioPage {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private produtoService: ProdutoService
+  ) { }
 
   
   goToTab1() {
-    this.router.navigateByUrl('/tabs/tab1');
+    this.router.navigate(['/tabs/tab1']);
   }
+
+  ngOnInit() {
+    this.produtoService.listarProdutos().subscribe(res => {
+      if (res.status === 'success') {
+    
+
+        this.router.navigateByUrl('/tabs/tab1');
+      } else {
+        console.error('Erro ao carregar produtos no início');
+      }
+    });
+  }
+
+
 }
